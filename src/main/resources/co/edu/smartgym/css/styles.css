@@ -1,0 +1,60 @@
+.root {
+    -fx-font-family: "Segoe UI";
+    -fx-background-color: #f5f7fa;
+}
+
+.header {
+    -fx-background-color: #172033;
+}
+
+.title {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: #d9e1ee;
+}
+
+.tab-pane {
+    -fx-background-color: #f5f7fa;
+}
+
+.tab {
+    -fx-font-size: 13px;
+}
+
+.section-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.primary-button {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 9 16;
+}
+
+.primary-button:hover {
+    -fx-background-color: #1d4ed8;
+}
+
+.text-field, .combo-box, .date-picker {
+    -fx-pref-height: 34px;
+}
+
+.card {
+    -fx-background-color: white;
+    -fx-padding: 20px;
+    -fx-border-color: #d9dee7;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+}
+
+.result-label {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}

@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.smartgym.controller.PrincipalController">
+
+    <top>
+        <VBox styleClass="header">
+            <padding>
+                <Insets top="16" right="20" bottom="16" left="20"/>
+            </padding>
+            <Label text="SmartGym" styleClass="title"/>
+            <Label text="Sistema de gestión de clientes, planes, entrenadores, servicios e inscripciones"
+                   styleClass="subtitle"/>
+        </VBox>
+    </top>
+
+    <center>
+        <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE">
+
+            <Tab text="Clientes">
+                <ScrollPane fitToWidth="true">
+                    <VBox spacing="15" padding="20">
+                        <Label text="Registrar cliente" styleClass="section-title"/>
+
+                        <GridPane hgap="10" vgap="10">
+                            <Label text="Nombre completo:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                            <TextField fx:id="txtNombreCliente" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                            <Label text="Documento:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                            <TextField fx:id="txtDocumentoCliente" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                            <Label text="Teléfono:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                            <TextField fx:id="txtTelefonoCliente" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                            <Label text="Correo:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                            <TextField fx:id="txtCorreoCliente" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                            <Label text="Edad:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                            <TextField fx:id="txtEdadCliente" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                            <Label text="Fecha registro:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                            <DatePicker fx:id="dpFechaCliente" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+                        </GridPane>
+
+                        <Button text="Registrar cliente" onAction="#registrarCliente" styleClass="primary-button"/>
+
+                        <Label text="Clientes registrados" styleClass="section-title"/>
+                        <TableView fx:id="tablaClientes" prefHeight="300">
+                            <columns>
+                                <TableColumn fx:id="colClienteNombre" text="Nombre" prefWidth="220"/>
+                                <TableColumn fx:id="colClienteDocumento" text="Documento" prefWidth="150"/>
+                                <TableColumn fx:id="colClienteTelefono" text="Teléfono" prefWidth="150"/>
+                                <TableColumn fx:id="colClienteCorreo" text="Correo" prefWidth="250"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+                </ScrollPane>
+            </Tab>
+
+            <Tab text="Entrenadores">
+                <ScrollPane fitToWidth="true">
+                    <VBox spacing="15" padding="20">
+                        <Label text="Registrar entrenador" styleClass="section-title"/>
+
+                        <GridPane hgap="10" vgap="10">
+                            <Label text="Identificación:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                            <TextField fx:id="txtDocumentoEntrenador" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                            <Label text="Nombre:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                            <TextField fx:id="txtNombreEntrenador" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                            <Label text="Especialidad:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                            <TextField fx:id="txtEspecialidadEntrenador" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                            <Label text="Teléfono:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                            <TextField fx:id="txtTelefonoEntrenador" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                            <Label text="Tarifa por sesión:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                            <TextField fx:id="txtTarifaEntrenador" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                        </GridPane>
+
+                        <Button text="Registrar entrenador" onAction="#registrarEntrenador" styleClass="primary-button"/>
+
+                        <Label text="Entrenadores registrados" styleClass="section-title"/>
+                        <TableView fx:id="tablaEntrenadores" prefHeight="350">
+                            <columns>
+                                <TableColumn fx:id="colEntrenadorDocumento" text="Identificación" prefWidth="150"/>
+                                <TableColumn fx:id="colEntrenadorNombre" text="Nombre" prefWidth="220"/>
+                                <TableColumn fx:id="colEntrenadorEspecialidad" text="Especialidad" prefWidth="200"/>
+                                <TableColumn fx:id="colEntrenadorTelefono" text="Teléfono" prefWidth="150"/>
+                                <TableColumn fx:id="colEntrenadorTarifa" text="Tarifa" prefWidth="120"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+                </ScrollPane>
+            </Tab>
+
+            <Tab text="Planes">
+                <ScrollPane fitToWidth="true">
+                    <VBox spacing="15" padding="20">
+                        <Label text="Registrar plan de entrenamiento" styleClass="section-title"/>
+
+                        <GridPane hgap="10" vgap="10">
+                            <Label text="Tipo de plan:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                            <ComboBox fx:id="cbTipoPlan" prefWidth="250" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                            <Label text="Código:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                            <TextField fx:id="txtCodigoPlan" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                            <Label text="Nombre:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                            <TextField fx:id="txtNombrePlan" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                            <Label text="Descripción:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                            <TextField fx:id="txtDescripcionPlan" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                            <Label text="Duración (meses):" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                            <TextField fx:id="txtDuracionPlan" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                            <Label text="Valor mensual:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                            <TextField fx:id="txtValorPlan" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+                            <Label text="Número de sesiones:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                            <TextField fx:id="txtSesionesPlan" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+
+                            <Label text="Especialidad requerida:" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+                            <TextField fx:id="txtEspecialidadPlan" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+
+                            <Label text="Objetivo del cliente:" GridPane.rowIndex="8" GridPane.columnIndex="0"/>
+                            <TextField fx:id="txtObjetivoPlan" GridPane.rowIndex="8" GridPane.columnIndex="1"/>
+                        </GridPane>
+
+                        <Button text="Registrar plan" onAction="#registrarPlan" styleClass="primary-button"/>
+
+                        <Label text="Planes registrados" styleClass="section-title"/>
+                        <TableView fx:id="tablaPlanes" prefHeight="320">
+                            <columns>
+                                <TableColumn fx:id="colPlanCodigo" text="Código" prefWidth="120"/>
+                                <TableColumn fx:id="colPlanNombre" text="Nombre" prefWidth="220"/>
+                                <TableColumn fx:id="colPlanDuracion" text="Duración" prefWidth="120"/>
+                                <TableColumn fx:id="colPlanValor" text="Valor mensual" prefWidth="150"/>
+                                <TableColumn fx:id="colPlanEstado" text="Estado" prefWidth="150"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+                </ScrollPane>
+            </Tab>
+
+            <Tab text="Servicios">
+                <ScrollPane fitToWidth="true">
+                    <VBox spacing="15" padding="20">
+                        <Label text="Registrar servicio adicional" styleClass="section-title"/>
+
+                        <GridPane hgap="10" vgap="10">
+                            <Label text="Tipo:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                            <ComboBox fx:id="cbTipoServicio" prefWidth="300" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                            <Label text="Código:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                            <TextField fx:id="txtCodigoServicio" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                            <Label text="Nombre:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                            <TextField fx:id="txtNombreServicio" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                            <Label text="Descripción:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                            <TextField fx:id="txtDescripcionServicio" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                            <Label text="Precio:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                            <TextField fx:id="txtPrecioServicio" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                            <CheckBox fx:id="chkDisponibleServicio" text="Disponible"
+                                      GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+                        </GridPane>
+
+                        <Button text="Registrar servicio" onAction="#registrarServicio" styleClass="primary-button"/>
+
+                        <Label text="Servicios registrados" styleClass="section-title"/>
+                        <TableView fx:id="tablaServicios" prefHeight="350">
+                            <columns>
+                                <TableColumn fx:id="colServicioCodigo" text="Código" prefWidth="130"/>
+                                <TableColumn fx:id="colServicioNombre" text="Nombre" prefWidth="220"/>
+                                <TableColumn fx:id="colServicioPrecio" text="Precio" prefWidth="150"/>
+                                <TableColumn fx:id="colServicioDisponible" text="Disponible" prefWidth="150"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+                </ScrollPane>
+            </Tab>
+
+            <Tab text="Inscripciones">
+                <ScrollPane fitToWidth="true">
+                    <VBox spacing="15" padding="20">
+                        <Label text="Registrar inscripción" styleClass="section-title"/>
+
+                        <GridPane hgap="10" vgap="10">
+                            <Label text="Cliente:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                            <ComboBox fx:id="cbClienteInscripcion" prefWidth="350"
+                                      GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                            <Label text="Plan:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                            <ComboBox fx:id="cbPlanInscripcion" prefWidth="350"
+                                      GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                            <Label text="Entrenador:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                            <ComboBox fx:id="cbEntrenadorInscripcion" prefWidth="350"
+                                      GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                            <Label text="Fecha:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                            <DatePicker fx:id="dpFechaInscripcion"
+                                        GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                            <Label text="Descuento:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                            <TextField fx:id="txtDescuentoInscripcion"
+                                       promptText="Ej: 50000"
+                                       GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                        </GridPane>
+
+                        <Label text="Servicios adicionales (selección múltiple)"
+                               styleClass="section-title"/>
+                        <ListView fx:id="listaServiciosInscripcion" prefHeight="130"/>
+
+                        <Button text="Registrar inscripción"
+                                onAction="#registrarInscripcion"
+                                styleClass="primary-button"/>
+
+                        <Label text="Inscripciones registradas" styleClass="section-title"/>
+                        <TableView fx:id="tablaInscripciones" prefHeight="320">
+                            <columns>
+                                <TableColumn fx:id="colInscripcionCliente" text="Cliente" prefWidth="220"/>
+                                <TableColumn fx:id="colInscripcionPlan" text="Plan" prefWidth="220"/>
+                                <TableColumn fx:id="colInscripcionFecha" text="Fecha" prefWidth="140"/>
+                                <TableColumn fx:id="colInscripcionTotal" text="Total" prefWidth="160"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+                </ScrollPane>
+            </Tab>
+
+            <Tab text="Reportes">
+                <ScrollPane fitToWidth="true">
+                    <VBox spacing="20" padding="20">
+
+                        <VBox spacing="10" styleClass="card">
+                            <Label text="Buscar cliente y verificar número perfecto"
+                                   styleClass="section-title"/>
+                            <HBox spacing="10">
+                                <TextField fx:id="txtTelefonoBusqueda"
+                                           promptText="Número de teléfono"
+                                           prefWidth="300"/>
+                                <Button text="Buscar"
+                                        onAction="#buscarCliente"
+                                        styleClass="primary-button"/>
+                            </HBox>
+                            <Label fx:id="lblClienteEncontrado"
+                                   text="Cliente: -"/>
+                            <Label fx:id="lblNumeroPerfecto"
+                                   text="¿El número es perfecto?: -"/>
+                        </VBox>
+
+                        <VBox spacing="10" styleClass="card">
+                            <Label text="Ingresos generados por periodo"
+                                   styleClass="section-title"/>
+                            <HBox spacing="10">
+                                <DatePicker fx:id="dpInicioReporte"/>
+                                <DatePicker fx:id="dpFinReporte"/>
+                                <Button text="Calcular ingresos"
+                                        onAction="#calcularIngresos"
+                                        styleClass="primary-button"/>
+                            </HBox>
+                            <Label fx:id="lblIngresos"
+                                   text="Ingresos del periodo: $0.00"
+                                   styleClass="result-label"/>
+                        </VBox>
+
+                    </VBox>
+                </ScrollPane>
+            </Tab>
+
+        </TabPane>
+    </center>
+</BorderPane>
